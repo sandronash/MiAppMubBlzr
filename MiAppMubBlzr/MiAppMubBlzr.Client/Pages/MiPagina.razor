@@ -1,0 +1,20 @@
+﻿@page "/mi-pagina"
+@page "/mi-pagina/{Valor}"
+@page "/mi-pagina/{Valor}/{Id:int}"
+
+<h3>MiPagina</h3>
+
+<MudAlert Severity="Severity.Info">@Valor</MudAlert>
+<MudAlert Severity="Severity.Info">@Id</MudAlert>
+<MudAlert Severity="Severity.Success">@Dato</MudAlert>
+<MudAlert Severity="Severity.Warning">@Dato2</MudAlert>
+
+
+@code {
+	[Parameter] public string Valor { get; set; }
+	[Parameter] public int Id { get; set; }
+	
+	[SupplyParameterFromQuery] public string Dato { get; set; }
+	[SupplyParameterFromQuery] public string Dato2 { get; set; }
+	
+}
