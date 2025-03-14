@@ -1,0 +1,64 @@
+﻿<h3>MiCompEventos</h3>
+
+<ul>
+	@foreach (string item in ListaEventos)
+	{
+		<li>@item</li>
+	}
+</ul>
+
+<p>@Valor</p>
+
+<button @onclick="CambioEstadoORender">
+	Cambiar Estado o Renderizar
+</button>
+
+<button @onclick="@(() => BloquearRenderizado = !BloquearRenderizado)">
+	Activar Renderizador
+</button>
+
+<p>Renderizado activo: @BloquearRenderizado</p>
+
+@code {
+	List<string> ListaEventos = new List<string>();
+	[Parameter] public int Valor { get; set; }
+
+	bool BloquearRenderizado = true;
+
+	protected override void OnInitialized()
+	{
+		ListaEventos.Add("Al Inicializar");
+
+		base.OnInitialized();
+	}
+
+	protected override void OnParametersSet()
+	{
+		ListaEventos.Add("Al Cambiar Parametro");
+
+		base.OnParametersSet();
+	}
+
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			ListaEventos.Add("Al Renderizar por primera vez");
+		}else{
+			ListaEventos.Add("Al Renderizar");
+		}
+
+
+		base.OnAfterRender(firstRender);
+	}
+
+	void CambioEstadoORender(){
+		StateHasChanged();
+	}
+
+	protected override bool ShouldRender()
+	{
+		return BloquearRenderizado;
+	}
+}
