@@ -1,0 +1,12 @@
+﻿<button class="MiBoton" @onclick="AlPresionar">
+	@Etiqueta
+</button>
+
+
+
+
+
+@code {
+	[Parameter] public string Etiqueta { get; set; } = string.Empty;
+	[Parameter] public EventCallback AlPresionar { get; set; }
+}

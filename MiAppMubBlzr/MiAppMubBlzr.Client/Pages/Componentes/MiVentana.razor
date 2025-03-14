@@ -1,0 +1,13 @@
+﻿<div class="contenedor">
+	@* <div>@ChildContent</div> *@
+	<div>@Cabecera</div>
+	<div>@Contenido</div>
+	<div>@Pie</div>
+</div>
+
+@code {
+	//[Parameter] public RenderFragment ChildContent { get; set; }
+	[Parameter] public RenderFragment Cabecera { get; set; }
+	[Parameter] public RenderFragment Contenido { get; set; }
+	[Parameter] public RenderFragment Pie { get; set; }
+}

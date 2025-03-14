@@ -1,7 +1,41 @@
 ﻿@page "/pruebas"
 
+@rendermode InteractiveAuto
+
 <h3>PruebaComponentes</h3>
 
-@code {
 
+@* <MiVentana>
+	<Cabecera>
+		dasdadad
+	</Cabecera>
+	<Pie>
+		este es el contenido del pie
+	</Pie>
+	<Contenido>
+
+		<MiBoton Etiqueta="Guardar" />
+		<MiBoton Etiqueta="Cancelar" />
+
+
+		<MiBoton Etiqueta="Contar" AlPresionar="Incrementar" />
+
+		<Letrero Valor="@Conteo.ToString()" />
+
+		<MudButton Color="Color.Success"
+				   DropShadow="true"
+				   ButtonType="ButtonType.Button"
+				   Size="Size.Small">Mi Boton 2</MudButton>
+
+
+	</Contenido>
+</MiVentana> *@
+
+
+@code {
+	int Conteo = 0;
+
+	void Incrementar(){
+		Conteo++;
+	}
 }
